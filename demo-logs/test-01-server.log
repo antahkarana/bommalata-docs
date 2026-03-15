@@ -1,0 +1,124 @@
+2026/03/15 18:45:13 [server] Initializing database at ./data/bommalata.db
+2026/03/15 18:45:14 [database] Applied migration: 003_auth_tables.sql
+2026/03/15 18:45:14 [database] Applied migration: 004_session_persistence.sql
+2026/03/15 18:45:14 Failed to create server: failed to run migrations: failed to
+ execute migration 005_memory_system.sql: no such module: fts5
+smriti@nixosVM:~/workspace/projects/bommalata-docs/ >
+smriti@nixosVM:~/workspace/projects/bommalata-docs/ > BOMMALATA_ROOT=/var/lib/sm
+riti/workspace/projects/bommalata ../bommalata/bommalata server --config demo-co
+nfig.yaml 2>&1 | tee -a demo-logs/server.log
+2026/03/15 18:46:09 [server] Initializing database at ./data/bommalata.db
+2026/03/15 18:46:09 [database] Applied migration: 005_memory_system.sql
+2026/03/15 18:46:09 [database] Applied migration: 006_agents.sql
+2026/03/15 18:46:09 [database] Applied migration: 007_add_task_result_type.sql
+2026/03/15 18:46:09 [database] Applied migration: 008_scheduled_tasks.sql
+2026/03/15 18:46:09 [database] Applied migration: 009_tasks_webhooks_workflows.s
+ql
+2026/03/15 18:46:09 [database] Initialized at ./data/bommalata.db
+2026/03/15 18:46:09 [server] Recovering sessions from database...
+2026/03/15 18:46:09 [sessions] Recovered 0 sessions from database
+2026/03/15 18:46:09 Starting server on port 8080
+2026/03/15 18:46:09 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 18:46:09 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 18:46:09 [server] Scheduler started
+2026/03/15 18:46:09 ✅ Server ready on port 8080
+2026/03/15 18:46:15 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:4
+2770 - 200 2B in 348.717µs
+2026/03/15 18:46:42 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:5
+7438 - 200 2B in 1.409208ms
+2026/03/15 18:46:42 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:57444 - 401 76B in 3.685001ms
+2026/03/15 18:46:42 "GET http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.
+0.0.1:57450 - 401 76B in 49.5µs
+2026/03/15 18:46:42 "GET http://127.0.0.1:8080/api/v1/agents/null HTTP/1.1" from
+ 127.0.0.1:57454 - 401 76B in 410.738µs
+2026/03/15 18:46:42 "PUT http://127.0.0.1:8080/api/v1/agents/null HTTP/1.1" from
+ 127.0.0.1:57464 - 401 76B in 51.288µs
+2026/03/15 18:46:42 "GET http://127.0.0.1:8080/api/v1/agents/null HTTP/1.1" from
+ 127.0.0.1:57466 - 401 76B in 51.405µs
+2026/03/15 18:46:46 "POST http://127.0.0.1:8080/api/v1/auth/register HTTP/1.1" f
+rom 127.0.0.1:38000 - 404 19B in 79.551µs
+2026/03/15 18:46:54 [auth] POST /auth/register
+2026/03/15 18:46:54 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:38004 - 400 68B in 1.006757ms
+2026/03/15 18:46:57 [auth] POST /auth/register
+2026/03/15 18:46:57 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:51074 - 400 75B in 827.642µs
+2026/03/15 18:47:01 [auth] POST /auth/register
+2026/03/15 18:47:01 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:51082 - 400 75B in 95.36µs
+2026/03/15 18:47:19 [auth] POST /auth/register
+2026/03/15 18:47:19 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:38130 - 400 89B in 1.205393ms
+2026/03/15 18:47:23 [auth] POST /auth/register
+2026/03/15 18:47:23 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:38146 - 201 97B in 384.951541ms
+2026/03/15 18:47:32 [auth] POST /auth/keys
+2026/03/15 18:47:33 "POST http://127.0.0.1:8080/auth/keys HTTP/1.1" from 127.0.0
+.1:58154 - 201 151B in 926.479649ms
+2026/03/15 18:48:01 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:3
+4288 - 200 2B in 36.507µs
+2026/03/15 18:48:01 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:34302 - 400 29B in 443.05364ms
+2026/03/15 18:48:09 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:36318 - 400 29B in 475.472661ms
+2026/03/15 18:48:28 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:3
+7786 - 200 2B in 37.337µs
+2026/03/15 18:48:29 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:37788 - 201 169B in 388.651038ms
+2026/03/15 18:48:29 "GET http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.
+0.0.1:37798 - 200 192B in 419.490727ms
+2026/03/15 18:48:29 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:37806 - 200 169B in 404.91085ms
+2026/03/15 18:48:30 "PUT http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:37818 - 405 0B in 374.230197ms
+2026/03/15 18:48:30 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:37834 - 200 169B in 464.344661ms
+2026/03/15 18:49:34 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:4
+0044 - 200 2B in 73.452µs
+2026/03/15 18:49:35 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:40058 - 500 102B in 381.873263ms
+^C
+smriti@nixosVM:~/workspace/projects/bommalata-docs/ > BOMMALATA_ROOT=/var/lib/sm
+riti/workspace/projects/bommalata ../bommalata/bommalata server --config demo-co
+nfig.yaml 2>&1 | tee -a demo-logs/server.log
+2026/03/15 18:50:03 [server] Initializing database at ./data/bommalata.db
+2026/03/15 18:50:03 [database] Applied migration: 003_auth_tables.sql
+2026/03/15 18:50:03 [database] Applied migration: 004_session_persistence.sql
+2026/03/15 18:50:03 [database] Applied migration: 005_memory_system.sql
+2026/03/15 18:50:03 [database] Applied migration: 006_agents.sql
+2026/03/15 18:50:03 [database] Applied migration: 007_add_task_result_type.sql
+2026/03/15 18:50:03 [database] Applied migration: 008_scheduled_tasks.sql
+2026/03/15 18:50:03 [database] Applied migration: 009_tasks_webhooks_workflows.s
+ql
+2026/03/15 18:50:03 [database] Initialized at ./data/bommalata.db
+2026/03/15 18:50:03 [server] Recovering sessions from database...
+2026/03/15 18:50:03 [sessions] Recovered 0 sessions from database
+2026/03/15 18:50:03 Starting server on port 8080
+2026/03/15 18:50:03 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 18:50:03 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 18:50:03 [server] Scheduler started
+2026/03/15 18:50:04 ✅ Server ready on port 8080
+2026/03/15 18:50:09 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:3
+3432 - 200 2B in 179.116µs
+2026/03/15 18:50:14 [auth] POST /auth/register
+2026/03/15 18:50:14 "POST http://127.0.0.1:8080/auth/register HTTP/1.1" from 127
+.0.0.1:33434 - 201 97B in 401.427136ms
+2026/03/15 18:50:18 [auth] POST /auth/keys
+2026/03/15 18:50:19 "POST http://127.0.0.1:8080/auth/keys HTTP/1.1" from 127.0.0
+.1:56178 - 201 151B in 770.912413ms
+2026/03/15 18:50:30 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:4
+1316 - 200 2B in 40.186µs
+2026/03/15 18:50:30 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127
+.0.0.1:41326 - 201 169B in 484.450228ms
+2026/03/15 18:50:31 "GET http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.
+0.0.1:41334 - 200 192B in 378.623464ms
+2026/03/15 18:50:31 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:41342 - 200 169B in 386.6082ms
+2026/03/15 18:50:32 "PATCH http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from
+127.0.0.1:41352 - 200 169B in 538.689716ms
+2026/03/15 18:50:32 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:41360 - 200 169B in 348.758492ms
+2026/03/15 18:50:39 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 12
+7.0.0.1:51338 - 200 169B in 393.324837ms
+
