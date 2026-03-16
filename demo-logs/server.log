@@ -77,3 +77,47 @@
 2026/03/15 18:50:32 "PATCH http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 127.0.0.1:41352 - 200 169B in 538.689716ms
 2026/03/15 18:50:32 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 127.0.0.1:41360 - 200 169B in 348.758492ms
 2026/03/15 18:50:39 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 127.0.0.1:51338 - 200 169B in 393.324837ms
+2026/03/15 19:04:31 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:48850 - 400 114B in 407.05167ms
+2026/03/15 19:04:56 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 19:04:56 [handler] Provider creation failed: OPENROUTER_API_KEY environment variable not set
+2026/03/15 19:04:56 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:49684 - 500 80B in 470.836425ms
+2026/03/15 19:05:45 [server] Initializing database at ./data/bommalata.db
+2026/03/15 19:05:45 [database] Initialized at ./data/bommalata.db
+2026/03/15 19:05:45 [server] Recovering sessions from database...
+2026/03/15 19:05:45 [sessions] Recovered 0 sessions from database
+2026/03/15 19:05:45 Starting server on port 8080
+2026/03/15 19:05:45 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 19:05:45 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 19:05:45 [server] Scheduler started
+2026/03/15 19:05:45 ✅ Server ready on port 8080
+2026/03/15 19:05:53 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:56012 - 200 2B in 110.365µs
+2026/03/15 19:05:57 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 19:05:57 [handler] Provider creation failed: OPENROUTER_API_KEY environment variable not set
+2026/03/15 19:05:57 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:59090 - 500 80B in 489.965684ms
+2026/03/15 19:06:06 "GET http://127.0.0.1:8080/api/v1/agents/1 HTTP/1.1" from 127.0.0.1:55400 - 200 169B in 496.304109ms
+2026/03/15 19:06:59 [server] Initializing database at ./data/bommalata.db
+2026/03/15 19:06:59 [database] Initialized at ./data/bommalata.db
+2026/03/15 19:06:59 [server] Recovering sessions from database...
+2026/03/15 19:06:59 [sessions] Recovered 0 sessions from database
+2026/03/15 19:06:59 Starting server on port 8080
+2026/03/15 19:06:59 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 19:06:59 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 19:06:59 [server] Scheduler started
+2026/03/15 19:06:59 ✅ Server ready on port 8080
+2026/03/15 19:07:06 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:38414 - 200 2B in 115.843µs
+2026/03/15 19:07:11 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 19:07:11 [runner] Using agent 1 workspace: data/workspaces/agent-1
+2026/03/15 19:07:11 [handler] Processing inline task for agent 1: Write a haiku about Go programming. Keep it simple and elegant.
+2026/03/15 19:07:11 [runner] Processing task inline-1-1773619631378667838 for agent 1: Inline Task
+2026/03/15 19:07:11 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 19:07:11 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 19:07:11 [runner]   msg[0] role=user toolCallID= content=Write a haiku about Go programming. Keep it simple and elegant.
+2026/03/15 19:07:12 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=65, thinking_len=0, tokens=94
+2026/03/15 19:07:12 [runner] Task complete, storing result
+2026/03/15 19:07:12 [memory] Storing task_result for agent 1: Statically typed,
+Fast and efficient, GoLang,
+Concurrency reigns.
+2026/03/15 19:07:12 [runner] Ad-hoc task inline-1-1773619631378667838 completed (no store entry)
+2026/03/15 19:07:12 [runner] Task inline-1-1773619631378667838 completed successfully
+2026/03/15 19:07:12 [handler] RunOnce completed for agent 1
+2026/03/15 19:07:12 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:38428 - 200 35B in 1.291309875s

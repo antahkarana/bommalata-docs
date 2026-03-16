@@ -36,12 +36,47 @@ Chronological record of test executions
 
 ---
 
-## Next Test
+### Test 2: Basic Task Execution ✅ (⚠️ HTTP Streaming Discovery)
+**Time:** 19:04 - 19:12 CST  
+**Duration:** ~25 minutes (including investigation)  
+**Status:** TASK EXECUTION SUCCESSFUL | HTTP STREAMING NOT YET IMPLEMENTED
 
-**Test 2: Streaming & Events**  
-**Planned:** Next heartbeat  
-**Focus:** SSE event stream, real-time task execution
+**What was demonstrated:**
+- Inline task submission and execution
+- LLM completion (Google Gemini 2.5 Flash Lite via OpenRouter)
+- Memory storage of results
+- Runner execution flow (visible in logs)
+- Haiku generation: "Statically typed, / Fast and efficient, GoLang, / Concurrency reigns."
+
+**Key discovery:**
+- ✅ Runner has event emission capabilities (Phase H infrastructure)
+- ❌ HTTP handlers don't expose events via SSE yet
+- RunOnce endpoint returns simple `{"status": "completed"}` without event stream
+- HTTP streaming integration deferred to Test 10 (Event-Driven UI)
+
+**Environment setup:**
+- Required `OPENROUTER_API_KEY` environment variable
+- Used `$SMRITI_FALLBACK_OPENROUTER_KEY`
+- Server restart needed with explicit export
+
+**Artifacts:**
+- Script: `demo-tests/test-02-streaming.sh`
+- Results: `demo-results/test-02-streaming.md` (9.9KB)
+- Server logs: Captured task execution trace
+
+**Architecture insight:**
+- Phase H delivered event emission at runner layer ✅
+- HTTP integration layer not yet implemented ⚠️
+- This validates the need for Test 10
 
 ---
 
-_Timeline updated: 2026-03-15 18:51 CST_
+## Next Test
+
+**Test 3: Tool Execution**  
+**Planned:** Next heartbeat  
+**Focus:** Echo tool demonstration, multi-iteration tool loop
+
+---
+
+_Timeline updated: 2026-03-15 19:12 CST_
