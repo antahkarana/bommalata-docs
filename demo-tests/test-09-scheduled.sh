@@ -15,7 +15,7 @@ echo "Step 1: Creating scheduled task"
 echo "--------------------------------"
 
 echo "Creating task: 'Daily memory summary' (runs every minute for testing)"
-TASK_RESPONSE=$(curl -s -X POST "${BASE_URL}/api/v1/scheduled" \
+TASK_RESPONSE=$(curl -s -X POST "${BASE_URL}/api/v1/scheduled-tasks" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${API_KEY}" \
   -d '{
@@ -37,7 +37,7 @@ echo
 echo "Step 2: Listing scheduled tasks"
 echo "---------------------------------"
 
-curl -s -X GET "${BASE_URL}/api/v1/scheduled" \
+curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks" \
   -H "Authorization: Bearer ${API_KEY}" | jq '.tasks[] | {id, name, schedule, enabled, lastRun, nextRun}'
 
 echo
@@ -60,7 +60,7 @@ echo
 echo "Step 4: Checking execution history"
 echo "------------------------------------"
 
-curl -s -X GET "${BASE_URL}/api/v1/scheduled/${TASK_ID}/executions" \
+curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}/executions" \
   -H "Authorization: Bearer ${API_KEY}" | jq '.executions[] | {id, startedAt, completedAt, status, result}'
 
 echo
@@ -71,7 +71,7 @@ echo
 echo "Step 5: Verifying task was executed"
 echo "-------------------------------------"
 
-curl -s -X GET "${BASE_URL}/api/v1/scheduled/${TASK_ID}" \
+curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}" \
   -H "Authorization: Bearer ${API_KEY}" | jq '{id, name, lastRun, nextRun, executions}'
 
 echo
@@ -82,7 +82,7 @@ echo
 echo "Step 6: Disabling scheduled task"
 echo "----------------------------------"
 
-curl -s -X PATCH "${BASE_URL}/api/v1/scheduled/${TASK_ID}" \
+curl -s -X PATCH "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${API_KEY}" \
   -d '{
@@ -97,7 +97,7 @@ echo
 echo "Step 7: Cleanup - deleting task"
 echo "---------------------------------"
 
-curl -s -X DELETE "${BASE_URL}/api/v1/scheduled/${TASK_ID}" \
+curl -s -X DELETE "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}" \
   -H "Authorization: Bearer ${API_KEY}"
 
 echo "✓ Task deleted"
