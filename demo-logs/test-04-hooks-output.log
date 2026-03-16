@@ -1,31 +1,84 @@
-[test-04] 2026/03/15 19:51:23 Starting Test 4: Tool Hooks demonstration
-[test-04] 2026/03/15 19:51:23 
+[test-04] 2026/03/15 20:15:45 Starting Test 4: Tool Hooks demonstration
+[test-04] 2026/03/15 20:15:45 
 === Test 1: Normal Execution (Under Rate Limit) ===
-[test-04] 2026/03/15 19:51:23 [runner] Processing task test-4-1 for agent 1: Normal File Creation
-[test-04] 2026/03/15 19:51:23 [runner] Starting tool loop (max 10 iterations), 1 tools available
-[test-04] 2026/03/15 19:51:23 [runner] Iteration 1: calling completion with 1 messages
-[test-04] 2026/03/15 19:51:23 [runner]   msg[0] role=user (Create a file named hook-test-1.txt with the content: First ...)
-[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 Task 1 error: completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 
+[test-04] 2026/03/15 20:15:45 [runner] Processing task test-4-1 for agent 1: Normal File Creation
+[test-04] 2026/03/15 20:15:45 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 20:15:45 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 20:15:45 [runner]   msg[0] role=user (Create a file named hook-test-1.txt with the content: First ...)
+[test-04] 2026/03/15 20:15:46 [runner] Response: model=google/gemini-2.5-flash-lite, 1 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=155
+[test-04] 2026/03/15 20:15:46 [runner] Processing 1 tool calls
+[test-04] 2026/03/15 20:15:46 [runner] Executing tool: file (id=tool_file_NfgefvMzBQ7FQDRki2Qw) args=map[content:First file created successfully operation:write path:hook-test-1.txt]
+[test-04] 2026/03/15 20:15:46 [hook:before] Tool: file, Call #1, ToolCallID: tool_file_NfgefvMzBQ7FQDRki2Qw
+[test-04] 2026/03/15 20:15:46 [hook:before] Arguments:
+{
+  "content": "First file created successfully",
+  "operation": "write",
+  "path": "hook-test-1.txt"
+}
+[test-04] 2026/03/15 20:15:46 [hook:after] Tool: file completed, isError: false
+[test-04] 2026/03/15 20:15:46 [hook:after] Original result: ok
+[test-04] 2026/03/15 20:15:46 [hook:after] Transformed result: ok (transformed at 2026-03-15 20:15:46)
+[test-04] 2026/03/15 20:15:46 [runner] Tool file result (39 bytes): ok (transformed at 2026-03-15 20:15:46)
+[test-04] 2026/03/15 20:15:46 [runner] Iteration 2: calling completion with 3 messages
+[test-04] 2026/03/15 20:15:46 [runner]   msg[0] role=user (Create a file named hook-test-1.txt with the content: First ...)
+[test-04] 2026/03/15 20:15:46 [runner]   msg[1] role=assistant (tool call: file)
+[test-04] 2026/03/15 20:15:46 [runner]   msg[2] role=tool (file tool result: ok (transformed at 2026-03-15 20:15:46))
+[test-04] 2026/03/15 20:15:46 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=70, thinking_len=0, tokens=154
+[test-04] 2026/03/15 20:15:46 [runner] Task complete, storing result
+[test-04] 2026/03/15 20:15:46 [memory] Stored: I have created the file hook-test-1.txt with the content you provided.
+[test-04] 2026/03/15 20:15:46 [runner] Task test-4-1 completed successfully
+[test-04] 2026/03/15 20:15:46 
 === Test 2: Second Call (Still Under Limit) ===
-[test-04] 2026/03/15 19:51:24 [runner] Processing task test-4-2 for agent 1: Second File Creation
-[test-04] 2026/03/15 19:51:24 [runner] Starting tool loop (max 10 iterations), 1 tools available
-[test-04] 2026/03/15 19:51:24 [runner] Iteration 1: calling completion with 1 messages
-[test-04] 2026/03/15 19:51:24 [runner]   msg[0] role=user (Create a file named hook-test-2.txt with the content: Second...)
-[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 Task 2 error: completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 
+[test-04] 2026/03/15 20:15:46 [runner] Processing task test-4-2 for agent 1: Second File Creation
+[test-04] 2026/03/15 20:15:46 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 20:15:46 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 20:15:46 [runner]   msg[0] role=user (Create a file named hook-test-2.txt with the content: Second...)
+[test-04] 2026/03/15 20:15:47 [runner] Response: model=google/gemini-2.5-flash-lite, 1 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=94
+[test-04] 2026/03/15 20:15:47 [runner] Processing 1 tool calls
+[test-04] 2026/03/15 20:15:47 [runner] Executing tool: file (id=tool_file_SWfaOiwh86DYdLOfwwhs) args=map[content:Second file created successfully operation:write path:hook-test-2.txt]
+[test-04] 2026/03/15 20:15:47 [hook:before] Tool: file, Call #2, ToolCallID: tool_file_SWfaOiwh86DYdLOfwwhs
+[test-04] 2026/03/15 20:15:47 [hook:before] Arguments:
+{
+  "content": "Second file created successfully",
+  "operation": "write",
+  "path": "hook-test-2.txt"
+}
+[test-04] 2026/03/15 20:15:47 [hook:after] Tool: file completed, isError: false
+[test-04] 2026/03/15 20:15:47 [hook:after] Original result: ok
+[test-04] 2026/03/15 20:15:47 [hook:after] Transformed result: ok (transformed at 2026-03-15 20:15:47)
+[test-04] 2026/03/15 20:15:47 [runner] Tool file result (39 bytes): ok (transformed at 2026-03-15 20:15:47)
+[test-04] 2026/03/15 20:15:47 [runner] Iteration 2: calling completion with 3 messages
+[test-04] 2026/03/15 20:15:47 [runner]   msg[0] role=user (Create a file named hook-test-2.txt with the content: Second...)
+[test-04] 2026/03/15 20:15:47 [runner]   msg[1] role=assistant (tool call: file)
+[test-04] 2026/03/15 20:15:47 [runner]   msg[2] role=tool (file tool result: ok (transformed at 2026-03-15 20:15:47))
+[test-04] 2026/03/15 20:15:47 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=91, thinking_len=0, tokens=157
+[test-04] 2026/03/15 20:15:47 [runner] Task complete, storing result
+[test-04] 2026/03/15 20:15:47 [memory] Stored: I have created the file hook-test-2.txt with the content: Second file created successfully.
+[test-04] 2026/03/15 20:15:47 [runner] Task test-4-2 completed successfully
+[test-04] 2026/03/15 20:15:47 
 === Test 3: Third Call (Rate Limited - Should Block) ===
-[test-04] 2026/03/15 19:51:24 [runner] Processing task test-4-3 for agent 1: Third File Creation (Blocked)
-[test-04] 2026/03/15 19:51:24 [runner] Starting tool loop (max 10 iterations), 1 tools available
-[test-04] 2026/03/15 19:51:24 [runner] Iteration 1: calling completion with 1 messages
-[test-04] 2026/03/15 19:51:24 [runner]   msg[0] role=user (Create a file named hook-test-3.txt with the content: This s...)
-[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 Task 3 error (expected): completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
-[test-04] 2026/03/15 19:51:24 
+[test-04] 2026/03/15 20:15:47 [runner] Processing task test-4-3 for agent 1: Third File Creation (Blocked)
+[test-04] 2026/03/15 20:15:47 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 20:15:47 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 20:15:47 [runner]   msg[0] role=user (Create a file named hook-test-3.txt with the content: This s...)
+[test-04] 2026/03/15 20:15:47 [runner] Response: model=google/gemini-2.5-flash-lite, 1 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=100
+[test-04] 2026/03/15 20:15:47 [runner] Processing 1 tool calls
+[test-04] 2026/03/15 20:15:47 [runner] Executing tool: file (id=tool_file_hedGOlMghojjvx3ltUmM) args=map[content:This should be blocked by rate limit operation:write path:hook-test-3.txt]
+[test-04] 2026/03/15 20:15:47 [hook:before] Tool: file, Call #3, ToolCallID: tool_file_hedGOlMghojjvx3ltUmM
+[test-04] 2026/03/15 20:15:47 [hook:before] ❌ BLOCKED: Rate limit exceeded (max 2 calls)
+[test-04] 2026/03/15 20:15:47 [runner] Tool file blocked by BeforeToolExecution hook: rate limit exceeded: file tool can only be called 2 times
+[test-04] 2026/03/15 20:15:47 [runner] Tool file error: rate limit exceeded: file tool can only be called 2 times
+[test-04] 2026/03/15 20:15:47 [runner] Iteration 2: calling completion with 3 messages
+[test-04] 2026/03/15 20:15:47 [runner]   msg[0] role=user (Create a file named hook-test-3.txt with the content: This s...)
+[test-04] 2026/03/15 20:15:47 [runner]   msg[1] role=assistant (tool call: file)
+[test-04] 2026/03/15 20:15:47 [runner]   msg[2] role=tool (file tool result: Tool execution blocked: rate limit excee...)
+[test-04] 2026/03/15 20:15:48 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=135, thinking_len=0, tokens=162
+[test-04] 2026/03/15 20:15:48 [runner] Task complete, storing result
+[test-04] 2026/03/15 20:15:48 [memory] Stored: I am sorry, I cannot fulfill this request. The file operation has been blocked due to exceeding the rate limit. Please try again later.
+[test-04] 2026/03/15 20:15:48 [runner] Task test-4-3 completed successfully
+[test-04] 2026/03/15 20:15:48 
 === Summary ===
-[test-04] 2026/03/15 19:51:24 Total file tool calls attempted: 0
-[test-04] 2026/03/15 19:51:24 Memory entries stored: 0
-[test-04] 2026/03/15 19:51:24 
+[test-04] 2026/03/15 20:15:48 Total file tool calls attempted: 3
+[test-04] 2026/03/15 20:15:48 Memory entries stored: 3
+[test-04] 2026/03/15 20:15:48 
 Test 4 complete!

@@ -110,49 +110,55 @@ Chronological record of test executions
 
 ---
 
-### Test 4: Tool Hooks ⚠️ (Architecture Validation)
-**Time:** 19:48 - 19:52 CST  
-**Duration:** ~30 minutes  
-**Status:** ARCHITECTURE VALIDATED (Full execution pending)
+### Test 4: Tool Hooks ✅
+**Time:** 19:48 - 20:16 CST  
+**Duration:** ~30 minutes (including troubleshooting)  
+**Status:** COMPLETE SUCCESS
 
-**What was validated:**
-- Tool hook infrastructure from Phase H
-- BeforeToolExecution signature and integration
-- AfterToolExecution signature and integration  
-- RunnerConfig builder pattern
-- Zero breaking changes confirmed
+**What was demonstrated:**
+- BeforeToolExecution: Rate limiting (max 2 file tool calls) ✅
+- AfterToolExecution: Result transformation (timestamps) ✅
+- Hook blocking: Third call prevented by rate limit ✅
+- Model integration: Saw transformed results and understood blocking ✅
 
-**Implementation created:**
-- Custom runner program: `cmd/demo-hooks/main.go` (5.4KB)
-- Rate limiting hook (max 2 file tool calls)
-- Result transformation hook (add timestamps)
-- 3-task test sequence
+**Execution results:**
+- **Test 1 (Call #1):** Allowed, file created, result transformed ✅
+- **Test 2 (Call #2):** Allowed, file created, result transformed ✅
+- **Test 3 (Call #3):** **BLOCKED by rate limit** ✅
+  - Hook prevented execution
+  - Error became tool result
+  - Model responded: "I am sorry, I cannot fulfill this request..."
+  - File NOT created (correctly blocked)
 
-**Issue encountered:**
-- OpenRouter API privacy/guardrail restrictions in standalone program
-- Server API works fine (different key context)
-- Full execution deferred, architecture documented
+**Files created:**
+- hook-test-1.txt: "First file created successfully" ✅
+- hook-test-2.txt: "Second file created successfully" ✅
+- hook-test-3.txt: ❌ Does NOT exist (blocked by hook)
 
-**Hook code demonstrated:**
-```go
-BeforeToolExecution: Rate limiting, argument logging
-AfterToolExecution: Timestamp transformation, result enhancement
-RunnerConfig: Clean builder pattern with optional hooks
+**Troubleshooting:**
+- Initial run: API privacy/guardrail error with gpt-4o-mini
+- Solution: Changed model to google/gemini-2.5-flash-lite
+- Server config update helped (env_file loading API key)
+
+**Enhanced logging in action:**
+```
+msg[0] role=user (Create a file named hook-test-1.txt with...)
+msg[1] role=assistant (tool call: file)
+msg[2] role=tool (file tool result: ok (transformed at 2026-03-15 20:15:46))
 ```
 
 **Value:**
-- Proves Phase H hook infrastructure is production-ready
-- Documents use cases: security, caching, metrics, transformation
-- Shows proper integration with runner
-- Validates design decisions
+- Proves Phase H hook infrastructure production-ready ✅
+- Validates 2 critical use cases (security + enhancement) ✅
+- Shows proper integration with runner ✅
+- Model handled hooks intelligently ✅
 
 **Artifacts:**
-- Code: `cmd/demo-hooks/main.go`
-- Results: `demo-results/test-04-hooks.md` (10.5KB architecture doc)
-- Test script: `demo-tests/test-04-hooks.sh` (documentation placeholder)
-- Output log: `demo-logs/test-04-hooks-output.log`
-
-**Recommendation:** Consider as "architecture validation" complete, full demo optional
+- Code: `cmd/demo-hooks/main.go` (5.4KB)
+- Success doc: `demo-results/test-04-hooks-SUCCESS.md` (8.2KB)
+- Architecture doc: `demo-results/test-04-hooks.md` (10.5KB)
+- Output log: `demo-logs/test-04-hooks-output.log` (full execution trace)
+- Files: 2 created, 1 correctly blocked
 
 ---
 
