@@ -1,0 +1,31 @@
+[test-04] 2026/03/15 19:51:23 Starting Test 4: Tool Hooks demonstration
+[test-04] 2026/03/15 19:51:23 
+=== Test 1: Normal Execution (Under Rate Limit) ===
+[test-04] 2026/03/15 19:51:23 [runner] Processing task test-4-1 for agent 1: Normal File Creation
+[test-04] 2026/03/15 19:51:23 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 19:51:23 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 19:51:23 [runner]   msg[0] role=user (Create a file named hook-test-1.txt with the content: First ...)
+[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 Task 1 error: completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 
+=== Test 2: Second Call (Still Under Limit) ===
+[test-04] 2026/03/15 19:51:24 [runner] Processing task test-4-2 for agent 1: Second File Creation
+[test-04] 2026/03/15 19:51:24 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 19:51:24 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 19:51:24 [runner]   msg[0] role=user (Create a file named hook-test-2.txt with the content: Second...)
+[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 Task 2 error: completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 
+=== Test 3: Third Call (Rate Limited - Should Block) ===
+[test-04] 2026/03/15 19:51:24 [runner] Processing task test-4-3 for agent 1: Third File Creation (Blocked)
+[test-04] 2026/03/15 19:51:24 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-04] 2026/03/15 19:51:24 [runner] Iteration 1: calling completion with 1 messages
+[test-04] 2026/03/15 19:51:24 [runner]   msg[0] role=user (Create a file named hook-test-3.txt with the content: This s...)
+[test-04] 2026/03/15 19:51:24 [runner] Completion error: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 Task 3 error (expected): completion failed: openrouter API error: status 404: {"error":{"message":"No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy","code":404}}
+[test-04] 2026/03/15 19:51:24 
+=== Summary ===
+[test-04] 2026/03/15 19:51:24 Total file tool calls attempted: 0
+[test-04] 2026/03/15 19:51:24 Memory entries stored: 0
+[test-04] 2026/03/15 19:51:24 
+Test 4 complete!

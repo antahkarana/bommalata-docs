@@ -195,3 +195,45 @@ Concurrency reigns.
 2026/03/15 19:27:17 [runner] Task inline-1-1773620834989102466 completed successfully
 2026/03/15 19:27:17 [handler] RunOnce completed for agent 1
 2026/03/15 19:27:17 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:53860 - 200 35B in 3.233413193s
+2026/03/15 19:37:45 [server] Initializing database at ./data/bommalata.db
+2026/03/15 19:37:45 [database] Initialized at ./data/bommalata.db
+2026/03/15 19:37:45 [server] Recovering sessions from database...
+2026/03/15 19:37:45 [sessions] Recovered 0 sessions from database
+2026/03/15 19:37:45 Starting server on port 8080
+2026/03/15 19:37:45 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 19:37:45 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 19:37:45 [server] Scheduler started
+2026/03/15 19:37:45 ✅ Server ready on port 8080
+2026/03/15 19:37:54 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:57646 - 200 2B in 98.849µs
+2026/03/15 19:38:02 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 19:38:02 [runner] Using agent 1 workspace: data/workspaces/agent-1
+2026/03/15 19:38:02 [handler] Processing inline task for agent 1: Create a file named enhanced-logging-test.txt with the content: Testing the new summarized message l...
+2026/03/15 19:38:02 [runner] Processing task inline-1-1773621482376154813 for agent 1: Inline Task
+2026/03/15 19:38:02 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 19:38:02 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 19:38:02 [runner]   msg[0] role=user (Create a file named enhanced-logging-test.txt with the conte...)
+2026/03/15 19:38:04 [runner] Response: model=google/gemini-2.5-flash-lite, 1 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=181
+2026/03/15 19:38:04 [runner] Processing 1 tool calls
+2026/03/15 19:38:04 [runner] Executing tool: file (id=tool_file_WL1OcqIdJ7mDFvrUFr6j) args=map[content:Testing the new summarized message logging feature operation:write path:enhanced-logging-test.txt]
+2026/03/15 19:38:04 [runner] Tool file result (2 bytes): ok
+2026/03/15 19:38:04 [runner] Iteration 2: calling completion with 3 messages
+2026/03/15 19:38:04 [runner]   msg[0] role=user (Create a file named enhanced-logging-test.txt with the conte...)
+2026/03/15 19:38:04 [runner]   msg[1] role=assistant (tool call: file)
+2026/03/15 19:38:04 [runner]   msg[2] role=tool (file tool result: ok)
+2026/03/15 19:38:06 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=138, thinking_len=0, tokens=820
+2026/03/15 19:38:06 [runner] Task complete, storing result
+2026/03/15 19:38:06 [memory] Storing task_result for agent 1: The file `enhanced-logging-test.txt` has been created successfully with the content: "Testing the ne...
+2026/03/15 19:38:06 [runner] Ad-hoc task inline-1-1773621482376154813 completed (no store entry)
+2026/03/15 19:38:06 [runner] Task inline-1-1773621482376154813 completed successfully
+2026/03/15 19:38:06 [handler] RunOnce completed for agent 1
+2026/03/15 19:38:06 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:52552 - 200 35B in 4.637733475s
+2026/03/15 19:48:17 [server] Initializing database at ./data/bommalata.db
+2026/03/15 19:48:17 [database] Initialized at ./data/bommalata.db
+2026/03/15 19:48:17 [server] Recovering sessions from database...
+2026/03/15 19:48:17 [sessions] Recovered 0 sessions from database
+2026/03/15 19:48:17 Starting server on port 8080
+2026/03/15 19:48:17 [scheduler] Starting scheduler with 1m0s check interval
+2026/03/15 19:48:17 [scheduler] Scheduler started with 0 tasks loaded
+2026/03/15 19:48:17 [server] Scheduler started
+2026/03/15 19:48:17 ✅ Server ready on port 8080
+2026/03/15 19:48:24 "GET http://127.0.0.1:8080/health HTTP/1.1" from 127.0.0.1:57174 - 200 2B in 70.018µs
