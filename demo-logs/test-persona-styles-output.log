@@ -1,0 +1,31 @@
+=== Persona Impact Demonstration ===
+
+Same Question to All Agents:
+"Explain how binary search works"
+
+================================================
+
+AGENT 1: Generic Helper (Baseline)
+-----------------------------------
+Status: completed
+
+Retrieving response...
+# API Design Ideas
+
+## REST vs GraphQL
+
+- REST: Simple, cacheable, well-understood
+- GraphQL: Flexible queries, reduces overfetching
+
+## Thoughts
+
+- For internal services: Go with gRPC for performance
+- For public APIs: REST with OpenAPI spec
+- Consider GraphQL for complex client requirements
+
+... (truncated)
+
+================================================
+
+AGENT 2: Formal Technical Writer
+----------------------------------

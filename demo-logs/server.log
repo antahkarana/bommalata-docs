@@ -307,3 +307,149 @@ Quicksort is a **divide-and-conque...
 2026/03/15 22:25:03 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:39508 - 200 8596B in 497.325594ms
 2026/03/15 22:25:09 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:42210 - 200 8596B in 428.639629ms
 2026/03/15 22:25:15 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files/11 HTTP/1.1" from 127.0.0.1:42218 - 200 4019B in 459.187982ms
+2026/03/15 22:38:02 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.0.0.1:60710 - 201 174B in 392.999234ms
+2026/03/15 22:38:03 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.0.0.1:60714 - 201 173B in 545.154297ms
+2026/03/15 22:38:03 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.0.0.1:60718 - 201 173B in 379.839451ms
+2026/03/15 22:38:04 "POST http://127.0.0.1:8080/api/v1/agents HTTP/1.1" from 127.0.0.1:60726 - 201 175B in 496.273589ms
+2026/03/15 22:38:31 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 22:38:31 [runner] Using agent 1 workspace: data/workspaces/agent-1
+2026/03/15 22:38:31 [handler] Processing inline task for agent 1: Explain how binary search works
+2026/03/15 22:38:31 [runner] Processing task inline-1-1773632311405517708 for agent 1: Inline Task
+2026/03/15 22:38:31 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:38:31 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:38:31 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:38:44 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=2421, thinking_len=0, tokens=1417
+2026/03/15 22:38:44 [runner] Task complete, storing result
+2026/03/15 22:38:44 [memory] Storing task_result for agent 1: 
+
+Binary search is an efficient algorithm for finding a target value within a **sorted** collection ...
+2026/03/15 22:38:44 [runner] Ad-hoc task inline-1-1773632311405517708 completed (no store entry)
+2026/03/15 22:38:44 [runner] Task inline-1-1773632311405517708 completed successfully
+2026/03/15 22:38:44 [handler] RunOnce completed for agent 1
+2026/03/15 22:38:44 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:42066 - 200 35B in 14.093523977s
+2026/03/15 22:38:45 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:42314 - 200 11327B in 484.348511ms
+2026/03/15 22:38:45 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files/10 HTTP/1.1" from 127.0.0.1:32840 - 200 561B in 377.461133ms
+2026/03/15 22:38:46 [handler] RunOnce called for agent 2, inline_task=true
+2026/03/15 22:38:46 [runner] Using agent 2 workspace: data/workspaces/agent-2
+2026/03/15 22:38:46 [handler] Processing inline task for agent 2: Explain how binary search works
+2026/03/15 22:38:46 [runner] Processing task inline-2-1773632326315416540 for agent 2: Inline Task
+2026/03/15 22:38:46 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:38:46 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:38:46 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:39:06 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=3236, thinking_len=0, tokens=1654
+2026/03/15 22:39:06 [runner] Task complete, storing result
+2026/03/15 22:39:06 [memory] Storing task_result for agent 2: 
+
+# Binary Search Algorithm
+
+Binary Search is an efficient algorithm for finding a target value with...
+2026/03/15 22:39:06 [runner] Ad-hoc task inline-2-1773632326315416540 completed (no store entry)
+2026/03/15 22:39:06 [runner] Task inline-2-1773632326315416540 completed successfully
+2026/03/15 22:39:06 [handler] RunOnce completed for agent 2
+2026/03/15 22:39:06 "POST http://127.0.0.1:8080/api/v1/agents/2/run-once HTTP/1.1" from 127.0.0.1:32850 - 200 35B in 20.106453125s
+2026/03/15 22:39:22 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:37550 - 200 11327B in 515.823369ms
+2026/03/15 22:39:22 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files HTTP/1.1" from 127.0.0.1:37558 - 200 3609B in 390.290947ms
+2026/03/15 22:39:23 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files HTTP/1.1" from 127.0.0.1:37572 - 200 25B in 548.761789ms
+2026/03/15 22:39:23 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:37582 - 200 25B in 386.75202ms
+2026/03/15 22:39:24 "GET http://127.0.0.1:8080/api/v1/agents/5/memory/files HTTP/1.1" from 127.0.0.1:37594 - 200 25B in 352.411489ms
+2026/03/15 22:39:33 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files/13 HTTP/1.1" from 127.0.0.1:42176 - 200 3587B in 397.5787ms
+2026/03/15 22:39:50 [handler] RunOnce called for agent 3, inline_task=true
+2026/03/15 22:39:50 [runner] Using agent 3 workspace: data/workspaces/agent-3
+2026/03/15 22:39:50 [handler] Processing inline task for agent 3: Explain how binary search works
+2026/03/15 22:39:50 [runner] Processing task inline-3-1773632390230777842 for agent 3: Inline Task
+2026/03/15 22:39:50 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:39:50 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:39:50 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:40:06 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 1 tool calls, stop_reason=tool_use, text_len=2108, thinking_len=0, tokens=1688
+2026/03/15 22:40:06 [runner] Processing 1 tool calls
+2026/03/15 22:40:06 [runner] Executing tool: file (id=toolu_bdrk_01CLJEHjypFg9ERENtXKJkwH) args=map[content:def binary_search(arr, target):
+    """
+    Performs binary search on a sorted array.
+    Returns the index of the target if found, otherwise -1.
+    """
+    left = 0
+    right = len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2  # Find the middle index
+
+        if arr[mid] == target:
+            return mid                # Target found!
+        elif arr[mid] < target:
+            left = mid + 1            # Target is in the right half
+        else:
+            right = mid - 1           # Target is in the left half
+
+    return -1  # Target not found
+
+
+# --- Demo ---
+if __name__ == "__main__":
+    sorted_array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+    # Search for a value that exists
+    target = 11
+    result = binary_search(sorted_array, target)
+    print(f"Array: {sorted_array}")
+    print(f"Searching for {target} → Found at index {result}")
+
+    # Search for a value that doesn't exist
+    target = 6
+    result = binary_search(sorted_array, target)
+    print(f"Searching for {target} → Result: {result} (not found)")
+ operation:write path:binary_search.py]
+2026/03/15 22:40:06 [runner] Tool file result (2 bytes): ok
+2026/03/15 22:40:06 [runner] Iteration 2: calling completion with 3 messages
+2026/03/15 22:40:06 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:40:06 [runner]   msg[1] role=assistant (response + tool call: file)
+2026/03/15 22:40:06 [runner]   msg[2] role=tool (bdrk tool result: ok)
+2026/03/15 22:40:10 [runner] Response: model=google/gemini-3-pro-preview-20251117, 1 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=1143
+2026/03/15 22:40:10 [runner] Processing 1 tool calls
+2026/03/15 22:40:10 [runner] Executing tool: file (id=tool_file_n4eeFBxXFRhodjOEBT41) args=map[operation:read path:binary_search.py]
+2026/03/15 22:40:10 [runner] Tool file result (1061 bytes): def binary_search(arr, target):
+    """
+    Performs binary search on a sorted array.
+    Returns the index of the target if found, otherwise -1.
+    """
+    left = 0
+    right = len(arr) - 1
+
+    whi...
+2026/03/15 22:40:10 [runner] Iteration 3: calling completion with 5 messages
+2026/03/15 22:40:10 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:40:10 [runner]   msg[1] role=assistant (response + tool call: file)
+2026/03/15 22:40:10 [runner]   msg[2] role=tool (bdrk tool result: ok)
+2026/03/15 22:40:10 [runner]   msg[3] role=assistant (tool call: file)
+2026/03/15 22:40:10 [runner]   msg[4] role=tool (file tool result: def binary_search(arr, target):
+    """
+...)
+2026/03/15 22:40:18 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=836, thinking_len=0, tokens=2360
+2026/03/15 22:40:18 [runner] Task complete, storing result
+2026/03/15 22:40:18 [memory] Storing task_result for agent 3: I've saved a Python implementation to `binary_search.py`. Here's a walkthrough of the code:
+
+1. **`l...
+2026/03/15 22:40:18 [runner] Ad-hoc task inline-3-1773632390230777842 completed (no store entry)
+2026/03/15 22:40:18 [runner] Task inline-3-1773632390230777842 completed successfully
+2026/03/15 22:40:18 [handler] RunOnce completed for agent 3
+2026/03/15 22:40:18 "POST http://127.0.0.1:8080/api/v1/agents/3/run-once HTTP/1.1" from 127.0.0.1:33810 - 200 35B in 28.253960241s
+2026/03/15 22:40:23 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files HTTP/1.1" from 127.0.0.1:33808 - 200 1125B in 471.024925ms
+2026/03/15 22:40:27 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files/14 HTTP/1.1" from 127.0.0.1:56180 - 200 1103B in 387.395315ms
+2026/03/15 22:40:36 [handler] RunOnce called for agent 4, inline_task=true
+2026/03/15 22:40:36 [runner] Using agent 4 workspace: data/workspaces/agent-4
+2026/03/15 22:40:36 [handler] Processing inline task for agent 4: Explain how binary search works
+2026/03/15 22:40:36 [runner] Processing task inline-4-1773632436815146172 for agent 4: Inline Task
+2026/03/15 22:40:36 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:40:36 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:40:36 [runner]   msg[0] role=user (Explain how binary search works)
+2026/03/15 22:40:46 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=1612, thinking_len=0, tokens=1204
+2026/03/15 22:40:46 [runner] Task complete, storing result
+2026/03/15 22:40:46 [memory] Storing task_result for agent 4: ## Binary Search
+
+Binary search is an efficient algorithm for finding a target value in a **sorted**...
+2026/03/15 22:40:46 [runner] Ad-hoc task inline-4-1773632436815146172 completed (no store entry)
+2026/03/15 22:40:46 [runner] Task inline-4-1773632436815146172 completed successfully
+2026/03/15 22:40:46 [handler] RunOnce completed for agent 4
+2026/03/15 22:40:46 "POST http://127.0.0.1:8080/api/v1/agents/4/run-once HTTP/1.1" from 127.0.0.1:60832 - 200 35B in 9.849071727s
+2026/03/15 22:40:52 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:59528 - 200 1932B in 387.045151ms
+2026/03/15 22:40:53 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:59534 - 200 1932B in 408.080748ms
+2026/03/15 22:40:53 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files/15 HTTP/1.1" from 127.0.0.1:59540 - 200 1910B in 480.105127ms
