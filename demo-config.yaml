@@ -26,4 +26,4 @@ logging:
   level: debug
   format: text
 
-env_file: "/var/lib/smriti/.config/secrets.env"
+env_file: "/var/lib/smriti/workspace/projects/bommalata/local/secrets.env"
