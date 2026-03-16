@@ -453,3 +453,68 @@ Binary search is an efficient algorithm for finding a target value in a **sorted
 2026/03/15 22:40:52 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:59528 - 200 1932B in 387.045151ms
 2026/03/15 22:40:53 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:59534 - 200 1932B in 408.080748ms
 2026/03/15 22:40:53 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files/15 HTTP/1.1" from 127.0.0.1:59540 - 200 1910B in 480.105127ms
+2026/03/15 22:49:08 [handler] RunOnce called for agent 2, inline_task=true
+2026/03/15 22:49:08 [runner] Using agent 2 workspace: data/workspaces/agent-2
+2026/03/15 22:49:08 [handler] Processing inline task for agent 2: Explain the trade-offs between monorepo (single repository for all projects) and polyrepo (separate ...
+2026/03/15 22:49:08 [runner] Processing task inline-2-1773632948114441432 for agent 2: Inline Task
+2026/03/15 22:49:08 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:49:08 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:49:08 [runner]   msg[0] role=user (Explain the trade-offs between monorepo (single repository f...)
+2026/03/15 22:49:37 [runner] Completion error: failed to read response: context deadline exceeded
+2026/03/15 22:49:37 [handler] RunOnce error: completion failed: failed to read response: context deadline exceeded
+2026/03/15 22:49:37 "POST http://127.0.0.1:8080/api/v1/agents/2/run-once HTTP/1.1" from 127.0.0.1:44446 - 500 111B in 30.001931949s
+2026/03/15 22:49:40 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files HTTP/1.1" from 127.0.0.1:44014 - 200 3609B in 497.390676ms
+2026/03/15 22:49:40 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files/13 HTTP/1.1" from 127.0.0.1:44028 - 200 3587B in 383.364575ms
+2026/03/15 22:49:41 [handler] RunOnce called for agent 3, inline_task=true
+2026/03/15 22:49:41 [runner] Using agent 3 workspace: data/workspaces/agent-3
+2026/03/15 22:49:41 [handler] Processing inline task for agent 3: Explain the trade-offs between monorepo (single repository for all projects) and polyrepo (separate ...
+2026/03/15 22:49:41 [runner] Processing task inline-3-1773632981198216889 for agent 3: Inline Task
+2026/03/15 22:49:41 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:49:41 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:49:41 [runner]   msg[0] role=user (Explain the trade-offs between monorepo (single repository f...)
+2026/03/15 22:50:10 [runner] Completion error: failed to read response: context deadline exceeded
+2026/03/15 22:50:10 [handler] RunOnce error: completion failed: failed to read response: context deadline exceeded
+2026/03/15 22:50:10 "POST http://127.0.0.1:8080/api/v1/agents/3/run-once HTTP/1.1" from 127.0.0.1:44040 - 500 111B in 30.001364426s
+2026/03/15 22:50:13 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files HTTP/1.1" from 127.0.0.1:53908 - 200 1125B in 392.299526ms
+2026/03/15 22:50:13 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files/14 HTTP/1.1" from 127.0.0.1:53918 - 200 1103B in 381.772526ms
+2026/03/15 22:50:14 [handler] RunOnce called for agent 4, inline_task=true
+2026/03/15 22:50:14 [runner] Using agent 4 workspace: data/workspaces/agent-4
+2026/03/15 22:50:14 [handler] Processing inline task for agent 4: Explain the trade-offs between monorepo (single repository for all projects) and polyrepo (separate ...
+2026/03/15 22:50:14 [runner] Processing task inline-4-1773633014087994212 for agent 4: Inline Task
+2026/03/15 22:50:14 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:50:14 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:50:14 [runner]   msg[0] role=user (Explain the trade-offs between monorepo (single repository f...)
+2026/03/15 22:50:40 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=4394, thinking_len=0, tokens=1745
+2026/03/15 22:50:40 [runner] Task complete, storing result
+2026/03/15 22:50:40 [memory] Storing task_result for agent 4: 
+
+# Monorepo vs. Polyrepo Architecture
+
+## Monorepo (Single Repository)
+
+### Pros
+- **Atomic changes...
+2026/03/15 22:50:40 [runner] Ad-hoc task inline-4-1773633014087994212 completed (no store entry)
+2026/03/15 22:50:40 [runner] Task inline-4-1773633014087994212 completed successfully
+2026/03/15 22:50:40 [handler] RunOnce completed for agent 4
+2026/03/15 22:50:40 "POST http://127.0.0.1:8080/api/v1/agents/4/run-once HTTP/1.1" from 127.0.0.1:53932 - 200 35B in 27.242933895s
+2026/03/15 22:50:43 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:50662 - 200 6660B in 460.237653ms
+2026/03/15 22:50:43 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files/16 HTTP/1.1" from 127.0.0.1:50668 - 200 4728B in 386.814364ms
+2026/03/15 22:50:44 [handler] RunOnce called for agent 5, inline_task=true
+2026/03/15 22:50:44 [runner] Using agent 5 workspace: data/workspaces/agent-5
+2026/03/15 22:50:44 [handler] Processing inline task for agent 5: Explain the trade-offs between monorepo (single repository for all projects) and polyrepo (separate ...
+2026/03/15 22:50:44 [runner] Processing task inline-5-1773633044209080879 for agent 5: Inline Task
+2026/03/15 22:50:44 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:50:44 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:50:44 [runner]   msg[0] role=user (Explain the trade-offs between monorepo (single repository f...)
+2026/03/15 22:51:13 [runner] Completion error: failed to read response: context deadline exceeded
+2026/03/15 22:51:13 [handler] RunOnce error: completion failed: failed to read response: context deadline exceeded
+2026/03/15 22:51:13 "POST http://127.0.0.1:8080/api/v1/agents/5/run-once HTTP/1.1" from 127.0.0.1:50670 - 500 111B in 30.000947523s
+2026/03/15 22:51:16 "GET http://127.0.0.1:8080/api/v1/agents/5/memory/files HTTP/1.1" from 127.0.0.1:44868 - 200 25B in 460.60169ms
+2026/03/15 22:51:16 "GET http://127.0.0.1:8080/api/v1/agents/5/memory/files/null HTTP/1.1" from 127.0.0.1:44880 - 400 16B in 391.351383ms
+2026/03/15 22:51:32 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files HTTP/1.1" from 127.0.0.1:44184 - 200 3609B in 507.888551ms
+2026/03/15 22:51:38 "GET http://127.0.0.1:8080/api/v1/agents/2/memory/files HTTP/1.1" from 127.0.0.1:51230 - 200 3609B in 400.915042ms
+2026/03/15 22:51:39 "GET http://127.0.0.1:8080/api/v1/agents/3/memory/files HTTP/1.1" from 127.0.0.1:51242 - 200 1125B in 522.110101ms
+2026/03/15 22:51:39 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files HTTP/1.1" from 127.0.0.1:51248 - 200 6660B in 382.529167ms
+2026/03/15 22:51:40 "GET http://127.0.0.1:8080/api/v1/agents/5/memory/files HTTP/1.1" from 127.0.0.1:51252 - 200 25B in 491.134839ms
+2026/03/15 22:51:50 "GET http://127.0.0.1:8080/api/v1/agents/4/memory/files/16 HTTP/1.1" from 127.0.0.1:49986 - 200 4728B in 409.127878ms
