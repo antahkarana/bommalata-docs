@@ -71,12 +71,51 @@ Chronological record of test executions
 
 ---
 
-## Next Test
+### Test 3: Tool Execution ✅
+**Time:** 19:26 - 19:28 CST  
+**Duration:** ~15 minutes (including discovery + execution)  
+**Status:** PASSED
 
-**Test 3: Tool Execution**  
-**Planned:** Next heartbeat  
-**Focus:** Echo tool demonstration, multi-iteration tool loop
+**What was demonstrated:**
+- File tool usage (write operation)
+- Multi-iteration reasoning loop (2 iterations)
+- Tool call/result flow with proper message structure
+- Model switching mid-task (Gemini → Claude Opus)
+- Workspace isolation (file created in agent-1 workspace)
+
+**Execution trace:**
+- Iteration 1: Gemini 2.5 Flash Lite decided to use file tool (114 tokens)
+- Tool execution: Write to test3-greeting.txt (result: "ok")
+- Iteration 2: Claude 4.6 Opus synthesized final response (833 tokens)
+- Total: 3.23s, ~947 tokens, 2 iterations
+
+**Key discovery:**
+- Only file tool registered (not echo tool as planned)
+- OpenRouter intelligently switches models (cost optimization: cheap for tool call, premium for synthesis)
+- Tool execution overhead: ~2x time, ~10x tokens vs no-tool tasks
+
+**Created artifact:**
+- File: `data/workspaces/agent-1/test3-greeting.txt`
+- Content: "Hello from Test 3! The file tool is working."
+
+**Artifacts:**
+- Script: `demo-tests/test-03-tools.sh`
+- Results: `demo-results/test-03-tools.md` (11.4KB)
+- Server logs: `demo-logs/test-03-server.log`
+
+**Architecture insight:**
+- Workspace isolation working (files in agent-specific dirs)
+- Tool execution properly logged at every step
+- Message role flow correct (user → assistant → tool → assistant)
 
 ---
 
-_Timeline updated: 2026-03-15 19:12 CST_
+## Next Test
+
+**Test 4: Tool Hooks**  
+**Planned:** Next heartbeat  
+**Focus:** BeforeToolExecution (rate limiting), AfterToolExecution (transformation)
+
+---
+
+_Timeline updated: 2026-03-15 19:28 CST_
