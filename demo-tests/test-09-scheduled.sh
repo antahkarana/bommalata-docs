@@ -14,15 +14,18 @@ echo
 echo "Step 1: Creating scheduled task"
 echo "--------------------------------"
 
-echo "Creating task: 'Daily memory summary' (runs every minute for testing)"
+echo "Creating task: 'Daily memory summary' (runs every minute for testing: 0 * * * * *)"
 TASK_RESPONSE=$(curl -s -X POST "${BASE_URL}/api/v1/scheduled-tasks" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${API_KEY}" \
   -d '{
     "name": "daily-memory-summary",
-    "schedule": "* * * * *",
+    "scheduleType": "cron",
+    "scheduleExpr": "0 * * * * *",
     "agentId": 1,
-    "task": "Summarize what you remember from today in 3 bullet points",
+    "taskPayload": {
+      "prompt": "Summarize what you remember from today in 3 bullet points"
+    },
     "enabled": true
   }')
 
@@ -38,7 +41,7 @@ echo "Step 2: Listing scheduled tasks"
 echo "---------------------------------"
 
 curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks" \
-  -H "Authorization: Bearer ${API_KEY}" | jq '.tasks[] | {id, name, schedule, enabled, lastRun, nextRun}'
+  -H "Authorization: Bearer ${API_KEY}" | jq '.[] | {id, name, scheduleExpr, enabled, lastRunAt, nextRunAt}'
 
 echo
 echo "✓ Scheduled tasks listed"
@@ -61,7 +64,7 @@ echo "Step 4: Checking execution history"
 echo "------------------------------------"
 
 curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}/executions" \
-  -H "Authorization: Bearer ${API_KEY}" | jq '.executions[] | {id, startedAt, completedAt, status, result}'
+  -H "Authorization: Bearer ${API_KEY}" | jq '.executions[] | {id, startedAt, completedAt, status, durationMs}'
 
 echo
 echo "✓ Execution history retrieved"
@@ -72,7 +75,7 @@ echo "Step 5: Verifying task was executed"
 echo "-------------------------------------"
 
 curl -s -X GET "${BASE_URL}/api/v1/scheduled-tasks/${TASK_ID}" \
-  -H "Authorization: Bearer ${API_KEY}" | jq '{id, name, lastRun, nextRun, executions}'
+  -H "Authorization: Bearer ${API_KEY}" | jq '{id, name, lastRunAt, nextRunAt, runCount}'
 
 echo
 echo "✓ Task execution verified"
