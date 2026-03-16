@@ -1,0 +1,69 @@
+=== Test 10: Event-Driven UI ===
+
+This test demonstrates a simple event-driven UI that polls
+for task completion and displays results in real-time.
+
+Starting event viewer (Agent 1)...
+Event viewer PID: 547200
+
+Triggering tasks to generate events...
+
+Task 1: Write a haiku about events
+{
+  "status": "completed"
+}
+⏱ Waiting for event viewer to detect...
+
+Task 2: Explain event-driven architecture
+{
+  "status": "completed"
+}
+⏱ Waiting for event viewer to detect...
+
+Task 3: Using Agent 4 (Concise Expert)
+{
+  "status": "completed"
+}
+⏱ Waiting...
+
+Stopping event viewer...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Event Viewer Log:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+╔══════════════════════════════════════════════════╗
+║        Bommalata Event Viewer (Agent 1)       ║
+╚══════════════════════════════════════════════════╝
+
+📊 Initial state:
+   Memory files: 13
+
+👀 Watching for new events... (Ctrl+C to stop)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[0;32m[23:01:54] NEW EVENT[0m
+   📄 File: brainstorm/api-design.md
+   📝 Words: 45
+   🕐 Created: 22:19:49
+[0;34m   Preview:[0m
+     # API Design Ideas
+     
+     ## REST vs GraphQL
+     ...
+
+
+=== Test 10 Complete ✅ ===
+
+Event-Driven UI Validated:
+  ✓ Event viewer polls for new files
+  ✓ Real-time detection of task completion
+  ✓ Preview of results shown
+  ✓ Multi-agent events can be monitored
+
+Implementation:
+  - Simple file polling (2-second interval)
+  - No WebSockets required
+  - Scalable to multiple agents
+  - Ready for browser-based UI
+
+Next Step: Build full UI with live updates

@@ -1,0 +1,20 @@
+╔══════════════════════════════════════════════════╗
+║        Bommalata Event Viewer (Agent 1)       ║
+╚══════════════════════════════════════════════════╝
+
+📊 Initial state:
+   Memory files: 13
+
+👀 Watching for new events... (Ctrl+C to stop)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[0;32m[23:01:54] NEW EVENT[0m
+   📄 File: brainstorm/api-design.md
+   📝 Words: 45
+   🕐 Created: 22:19:49
+[0;34m   Preview:[0m
+     # API Design Ideas
+     
+     ## REST vs GraphQL
+     ...
+
