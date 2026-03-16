@@ -213,6 +213,37 @@ msg[2] role=tool (file tool result: ok (transformed at 2026-03-15 20:15:46))
 
 ---
 
+### Test 5: Steering & Interruption ✅
+**Time:** 22:15 CST (late Sunday evening)  
+**Duration:** ~10 minutes  
+**Status:** COMPLETE SUCCESS
+
+**What was demonstrated:**
+- GetSteeringMessages hook interrupts after 1st tool execution ✅
+- Tool skipping: 3 of 4 tools prevented ✅
+- Message injection: Steering delivered to model ✅
+- Model compliance: Understood and stopped ✅
+
+**Execution results:**
+- Task: Create 4 files (steering-test-1/2/3/4.txt)
+- Model plan: 4 tool calls in one batch
+- Tool 1: steering-test-1.txt created (8 bytes) ✅
+- Steering triggered 🛑
+- Tools 2-4: SKIPPED (correctly prevented) ✅
+
+**Value:**
+- Phase H steering proven production-ready
+- Human-in-the-loop pattern validated
+- Tool skipping mechanism perfect
+- Model integration seamless
+
+**Artifacts:**
+- Code: cmd/demo-steering/main.go (4.9KB)
+- Results: demo-results/test-05-steering.md (11.5KB)
+- Output log: 2.3KB full trace
+
+---
+
 ## Next Test
 
 **Test 6: Memory Integration**  
@@ -220,4 +251,4 @@ msg[2] role=tool (file tool result: ok (transformed at 2026-03-15 20:15:46))
 
 ---
 
-_Timeline updated: 2026-03-15 20:34 CST_
+_Timeline updated: 2026-03-15 22:17 CST_

@@ -1,0 +1,52 @@
+warning: Git tree '/var/lib/smriti/workspace/projects/bommalata' is dirty
+[test-05] 2026/03/15 22:15:04 Starting Test 5: Steering & Interruption demonstration
+[test-05] 2026/03/15 22:15:04 
+=== Test: Multi-Step File Creation (Will Be Interrupted) ===
+[test-05] 2026/03/15 22:15:04 Expected behavior:
+[test-05] 2026/03/15 22:15:04   - Agent will plan to create 4 files
+[test-05] 2026/03/15 22:15:04   - After 1st file created, steering will interrupt
+[test-05] 2026/03/15 22:15:04   - Steering message: 'Stop! Only create the first file, skip the rest.'
+[test-05] 2026/03/15 22:15:04   - Remaining files will NOT be created
+[test-05] 2026/03/15 22:15:04 
+[test-05] 2026/03/15 22:15:04 [runner] Processing task test-5-steering for agent 1: Multi-File Creation
+[test-05] 2026/03/15 22:15:04 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-05] 2026/03/15 22:15:04 [runner] Iteration 1: calling completion with 1 messages
+[test-05] 2026/03/15 22:15:04 [runner]   msg[0] role=user (Create 4 files:
+1. steering-test-1.txt with content "File on...)
+[test-05] 2026/03/15 22:15:05 [runner] Response: model=google/gemini-2.5-flash-lite, 4 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=186
+[test-05] 2026/03/15 22:15:05 [runner] Processing 4 tool calls
+[test-05] 2026/03/15 22:15:05 [runner] Executing tool: file (id=tool_file_vmojSzNb2jiaMgqZ7Qm4) args=map[content:File one operation:write path:steering-test-1.txt]
+[test-05] 2026/03/15 22:15:05 [hook:after] Tool execution #1: file (isError: false)
+[test-05] 2026/03/15 22:15:05 [runner] Tool file result (2 bytes): ok
+[test-05] 2026/03/15 22:15:05 [steering] 🛑 INTERRUPTING after 1st tool execution
+[test-05] 2026/03/15 22:15:05 [steering] Injecting steering message to stop multi-file creation
+[test-05] 2026/03/15 22:15:05 [steering] Steering message injected
+[test-05] 2026/03/15 22:15:05 [runner] Steering messages received (1), skipping remaining 3 tools
+[test-05] 2026/03/15 22:15:05 [runner] Iteration 2: calling completion with 7 messages
+[test-05] 2026/03/15 22:15:05 [runner]   msg[0] role=user (Create 4 files:
+1. steering-test-1.txt with content "File on...)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[1] role=assistant (tool call: file, file, file, file)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[2] role=tool (file tool result: ok)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[3] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[4] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[5] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 22:15:05 [runner]   msg[6] role=user (Stop! I changed my mind. Only create the first file (steerin...)
+[test-05] 2026/03/15 22:15:05 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=0, thinking_len=0, tokens=328
+[test-05] 2026/03/15 22:15:05 [runner] Task complete, storing result
+[test-05] 2026/03/15 22:15:05 [memory] Stored: 
+[test-05] 2026/03/15 22:15:05 [runner] Task test-5-steering completed successfully
+[test-05] 2026/03/15 22:15:05 
+=== Verification ===
+[test-05] 2026/03/15 22:15:05 Tool executions before steering: 1
+[test-05] 2026/03/15 22:15:05 Steering messages injected: 1
+[test-05] 2026/03/15 22:15:05 Memory entries stored: 1
+[test-05] 2026/03/15 22:15:05 
+Files created:
+[test-05] 2026/03/15 22:15:05   steering-test-1.txt: (checking...)
+[test-05] 2026/03/15 22:15:05   steering-test-2.txt: (checking...)
+[test-05] 2026/03/15 22:15:05   steering-test-3.txt: (checking...)
+[test-05] 2026/03/15 22:15:05   steering-test-4.txt: (checking...)
+[test-05] 2026/03/15 22:15:05 
+Test 5 complete!
+[test-05] 2026/03/15 22:15:05 Expected: Only steering-test-1.txt should exist
+[test-05] 2026/03/15 22:15:05 Steering should have prevented files 2, 3, 4
