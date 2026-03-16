@@ -277,3 +277,33 @@ Concurrency reigns.
 2026/03/15 22:20:31 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:34680 - 200 169B in 397.528549ms
 2026/03/15 22:20:31 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34684 - 200 4577B in 540.274497ms
 2026/03/15 22:20:32 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files/10 HTTP/1.1" from 127.0.0.1:34698 - 200 561B in 360.015036ms
+2026/03/15 22:24:28 [handler] RunOnce called for agent 1, inline_task=true
+2026/03/15 22:24:28 [runner] Using agent 1 workspace: data/workspaces/agent-1
+2026/03/15 22:24:28 [handler] Processing inline task for agent 1: I'd like to learn about quicksort. 
+
+First, explain the algorithm at a high level.
+
+Then, tell me ho...
+2026/03/15 22:24:28 [runner] Processing task inline-1-1773631468922207896 for agent 1: Inline Task
+2026/03/15 22:24:28 [runner] Starting tool loop (max 10 iterations), 1 tools available
+2026/03/15 22:24:28 [runner] Iteration 1: calling completion with 1 messages
+2026/03/15 22:24:28 [runner]   msg[0] role=user (I'd like to learn about quicksort. 
+
+First, explain the algo...)
+2026/03/15 22:24:50 [runner] Response: model=anthropic/claude-4.6-opus-20260205, 0 tool calls, stop_reason=complete, text_len=3680, thinking_len=0, tokens=1833
+2026/03/15 22:24:50 [runner] Task complete, storing result
+2026/03/15 22:24:50 [memory] Storing task_result for agent 1: 
+
+# Quicksort: A Comprehensive Guide
+
+## 1. High-Level Algorithm
+
+Quicksort is a **divide-and-conque...
+2026/03/15 22:24:50 [runner] Ad-hoc task inline-1-1773631468922207896 completed (no store entry)
+2026/03/15 22:24:50 [runner] Task inline-1-1773631468922207896 completed successfully
+2026/03/15 22:24:50 [handler] RunOnce completed for agent 1
+2026/03/15 22:24:50 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:55648 - 200 35B in 22.125222197s
+2026/03/15 22:24:50 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:53350 - 200 298B in 416.230758ms
+2026/03/15 22:25:03 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:39508 - 200 8596B in 497.325594ms
+2026/03/15 22:25:09 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:42210 - 200 8596B in 428.639629ms
+2026/03/15 22:25:15 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files/11 HTTP/1.1" from 127.0.0.1:42218 - 200 4019B in 459.187982ms

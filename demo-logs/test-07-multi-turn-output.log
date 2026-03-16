@@ -1,0 +1,37 @@
+=== Test 7: Multi-Turn Conversation ===
+
+Task (Multi-Turn):
+------------------
+I'd like to learn about quicksort. 
+
+First, explain the algorithm at a high level.
+
+Then, tell me how to optimize it for nearly-sorted arrays.
+
+Finally, what edge cases should I test when implementing it?
+
+Expected behavior:
+  - Agent will provide multi-part response
+  - Each part builds on previous context
+  - Coding tutor persona should influence style
+
+Running task...
+
+
+✓ Task complete
+
+Checking stored memory...
+-------------------------
+{
+  "path": "daily/2026-03-15-programming.md",
+  "snippet": "## Algorithms\n\n- Favorite sorting algorithm: **Quicksort** (O(n log n) average case)\n- Recently studied: Binary search trees and graph traversal",
+  "score": -1.6781322362221165
+}
+
+=== Test 7 Complete ✅ ===
+
+Multi-Turn Conversation Validated:
+  ✓ Context retention across turns
+  ✓ Persona influence on responses
+  ✓ Conversational flow maintained
+  ✓ Memory stored for future reference
