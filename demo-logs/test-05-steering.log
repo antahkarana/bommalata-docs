@@ -1,0 +1,54 @@
+[test-05] 2026/03/15 20:34:47 Starting Test 5: Steering & Interruption demonstration
+[test-05] 2026/03/15 20:34:47 
+=== Task: Write four files ===
+[test-05] 2026/03/15 20:34:47 [main] Starting task execution...
+[test-05] 2026/03/15 20:34:47 [main] Expected behavior:
+[test-05] 2026/03/15 20:34:47   1. Agent will write steering-1.txt
+[test-05] 2026/03/15 20:34:47   2. After first file write, steering message injected
+[test-05] 2026/03/15 20:34:47   3. Remaining files (2, 3, 4) skipped
+[test-05] 2026/03/15 20:34:47   4. Agent responds with redirected message
+[test-05] 2026/03/15 20:34:47 
+[test-05] 2026/03/15 20:34:47 [runner] Processing task test-5-steering for agent 1: Write Multiple Files
+[test-05] 2026/03/15 20:34:47 [runner] Starting tool loop (max 10 iterations), 1 tools available
+[test-05] 2026/03/15 20:34:47 [runner] Iteration 1: calling completion with 1 messages
+[test-05] 2026/03/15 20:34:47 [runner]   msg[0] role=user (Write 4 files: steering-1.txt (content: 'First'), steering-2...)
+[test-05] 2026/03/15 20:34:47 [event] agent_start
+[test-05] 2026/03/15 20:34:47 [event] turn_start
+[test-05] 2026/03/15 20:34:48 [runner] Response: model=google/gemini-2.5-flash-lite, 4 tool calls, stop_reason=tool_use, text_len=0, thinking_len=0, tokens=153
+[test-05] 2026/03/15 20:34:48 [runner] Processing 4 tool calls
+[test-05] 2026/03/15 20:34:48 [runner] Executing tool: file (id=tool_file_aUpPSS3QpOUseesOjfii) args=map[content:First operation:write path:steering-1.txt]
+[test-05] 2026/03/15 20:34:48 [event] message_end
+[test-05] 2026/03/15 20:34:48 [event] tool_execution_start
+[test-05] 2026/03/15 20:34:48 [hook:after] Tool call #1 completed: file
+[test-05] 2026/03/15 20:34:48 [steering] ⚠️  User interruption detected!
+[test-05] 2026/03/15 20:34:48 [steering] Queueing steering message to redirect task...
+[test-05] 2026/03/15 20:34:48 [runner] Tool file result (2 bytes): ok
+[test-05] 2026/03/15 20:34:48 [steering] ✅ Returning steering message to runner
+[test-05] 2026/03/15 20:34:48 [steering] Remaining tool calls will be skipped
+[test-05] 2026/03/15 20:34:48 [runner] Steering messages received (1), skipping remaining 3 tools
+[test-05] 2026/03/15 20:34:48 [runner] Iteration 2: calling completion with 7 messages
+[test-05] 2026/03/15 20:34:48 [runner]   msg[0] role=user (Write 4 files: steering-1.txt (content: 'First'), steering-2...)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[1] role=assistant (tool call: file, file, file, file)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[2] role=tool (file tool result: ok)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[3] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[4] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[5] role=tool (file tool result: Skipped: user interruption received)
+[test-05] 2026/03/15 20:34:48 [runner]   msg[6] role=user ()
+[test-05] 2026/03/15 20:34:48 [event] tool_execution_end
+[test-05] 2026/03/15 20:34:48 [event] turn_end
+[test-05] 2026/03/15 20:34:48 [event] turn_start
+[test-05] 2026/03/15 20:34:49 [runner] Response: model=google/gemini-2.5-flash-lite, 0 tool calls, stop_reason=complete, text_len=120, thinking_len=0, tokens=273
+[test-05] 2026/03/15 20:34:49 [runner] Task complete, storing result
+[test-05] 2026/03/15 20:34:49 [memory] Stored: The user interrupted the file writing operations. Therefore, only 'steering-1.txt' was created with the content 'First'.
+[test-05] 2026/03/15 20:34:49 [runner] Task test-5-steering completed successfully
+[test-05] 2026/03/15 20:34:49 [event] message_end
+[test-05] 2026/03/15 20:34:49 [event] turn_end
+[test-05] 2026/03/15 20:34:49 [event] agent_end
+[test-05] 2026/03/15 20:34:49 
+=== Summary ===
+[test-05] 2026/03/15 20:34:49 Total file tool calls executed: 1 (expected: 1)
+[test-05] 2026/03/15 20:34:49 Steering messages injected: 1
+[test-05] 2026/03/15 20:34:49 Tool calls skipped: ~3 (expected)
+[test-05] 2026/03/15 20:34:49 
+✅ Test 5 complete!
+[test-05] 2026/03/15 20:34:49 Steering successfully redirected the task after first tool execution
