@@ -261,3 +261,19 @@ Concurrency reigns.
 2026/03/15 20:14:42 [runner] Task inline-1-1773623681416227746 completed successfully
 2026/03/15 20:14:42 [handler] RunOnce completed for agent 1
 2026/03/15 20:14:42 "POST http://127.0.0.1:8080/api/v1/agents/1/run-once HTTP/1.1" from 127.0.0.1:48306 - 200 35B in 1.20521637s
+2026/03/15 22:18:31 "POST http://127.0.0.1:8080/api/v1/agents/1/memory HTTP/1.1" from 127.0.0.1:59702 - 404 19B in 407.547372ms
+2026/03/15 22:19:48 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:50668 - 201 606B in 395.776311ms
+2026/03/15 22:19:48 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:50676 - 201 502B in 502.18936ms
+2026/03/15 22:19:49 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:50682 - 201 521B in 396.038654ms
+2026/03/15 22:19:49 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:50686 - 200 4455B in 489.653659ms
+2026/03/15 22:19:50 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:50702 - 200 17B in 385.835879ms
+2026/03/15 22:19:56 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:52068 - 200 199B in 408.746911ms
+2026/03/15 22:20:28 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34632 - 201 606B in 410.652664ms
+2026/03/15 22:20:28 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34636 - 201 504B in 433.61677ms
+2026/03/15 22:20:29 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34638 - 201 521B in 511.486346ms
+2026/03/15 22:20:29 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34644 - 200 4577B in 416.19869ms
+2026/03/15 22:20:30 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:34652 - 200 17B in 473.953474ms
+2026/03/15 22:20:30 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:34666 - 200 297B in 418.217518ms
+2026/03/15 22:20:31 "POST http://127.0.0.1:8080/api/v1/agents/1/memory/search HTTP/1.1" from 127.0.0.1:34680 - 200 169B in 397.528549ms
+2026/03/15 22:20:31 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files HTTP/1.1" from 127.0.0.1:34684 - 200 4577B in 540.274497ms
+2026/03/15 22:20:32 "GET http://127.0.0.1:8080/api/v1/agents/1/memory/files/10 HTTP/1.1" from 127.0.0.1:34698 - 200 561B in 360.015036ms

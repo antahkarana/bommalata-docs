@@ -1,0 +1,150 @@
+=== Test 6: Memory Integration ===
+
+Step 1: Creating memory files
+------------------------------
+Creating daily log with programming notes...
+{
+  "id": 8,
+  "path": "daily/2026-03-15-programming.md",
+  "type": "daily_log",
+  "wordCount": 53
+}
+
+Creating long-term memory with preferences...
+{
+  "id": 9,
+  "path": "preferences.md",
+  "type": "long_term",
+  "wordCount": 43
+}
+
+Creating brainstorming notes...
+{
+  "id": 10,
+  "path": "brainstorm/api-design.md",
+  "type": "brainstorm",
+  "wordCount": 45
+}
+
+✓ Memory files created
+
+Step 2: Listing memory files
+------------------------------
+{
+  "id": 10,
+  "path": "brainstorm/api-design.md",
+  "type": "brainstorm",
+  "wordCount": 45
+}
+{
+  "id": 8,
+  "path": "daily/2026-03-15-programming.md",
+  "type": "daily_log",
+  "wordCount": 53
+}
+{
+  "id": 9,
+  "path": "preferences.md",
+  "type": "long_term",
+  "wordCount": 43
+}
+{
+  "id": 7,
+  "path": "memory/task_result_20260315_201442.119240888_2145.md",
+  "type": "task_result",
+  "wordCount": 3
+}
+{
+  "id": 6,
+  "path": "memory/task_result_20260315_193806.629139042_1848.md",
+  "type": "task_result",
+  "wordCount": 17
+}
+{
+  "id": 5,
+  "path": "memory/task_result_20260315_192717.795531931_5414.md",
+  "type": "task_result",
+  "wordCount": 20
+}
+{
+  "id": 4,
+  "path": "memory/task_result_20260315_192647.574087988_7665.md",
+  "type": "task_result",
+  "wordCount": 29
+}
+{
+  "id": 3,
+  "path": "memory/task_result_20260315_192627.165944424_5060.md",
+  "type": "task_result",
+  "wordCount": 106
+}
+{
+  "id": 2,
+  "path": "memory/task_result_20260315_192454.306101328_9394.md",
+  "type": "task_result",
+  "wordCount": 3
+}
+{
+  "id": 1,
+  "path": "memory/task_result_20260315_190712.264152565_9187.md",
+  "type": "task_result",
+  "wordCount": 8
+}
+
+✓ Files listed
+
+Step 3: Semantic search with FTS5
+-----------------------------------
+Query: 'programming languages'
+null
+
+Query: 'algorithm quicksort'
+[
+  {
+    "fileId": 8,
+    "path": "daily/2026-03-15-programming.md",
+    "type": "daily_log",
+    "snippet": "## Algorithms\n\n- Favorite sorting algorithm: **Quicksort** (O(n log n) average case)\n- Recently studied: Binary search trees and graph traversal",
+    "heading": "Algorithms",
+    "score": -3.356264472444233
+  }
+]
+
+Query: 'API design'
+[
+  {
+    "fileId": 10,
+    "path": "brainstorm/api-design.md",
+    "type": "brainstorm",
+    "snippet": "# API Design Ideas",
+    "heading": "API Design Ideas",
+    "score": -6.261358966625471
+  }
+]
+
+✓ Search complete
+
+Step 4: Retrieving specific file
+----------------------------------
+Fetching file ID: 10
+{
+  "id": 10,
+  "path": "brainstorm/api-design.md",
+  "type": "brainstorm",
+  "content": "# API Design Ideas\n\n## REST vs GraphQL\n\n- REST: Simple, cacheable, well-understood\n- GraphQL: Flexible queries, reduces overfetching\n\n## Thoughts\n\n- For internal services: Go with gRPC for performance\n- For public APIs: REST with OpenAPI spec\n- Consider GraphQL for complex client requirements\n"
+}
+
+✓ File retrieved
+
+=== Test 6 Complete ✅ ===
+
+Memory Integration Validated:
+  ✓ File-based memory storage
+  ✓ FTS5 semantic search across files
+  ✓ Multiple file types (daily_log, long_term, brainstorm)
+  ✓ Content chunking and retrieval
+
+Created files:
+  - daily/2026-03-15-programming.md (programming notes)
+  - preferences.md (user preferences)
+  - brainstorm/api-design.md (design ideas)
