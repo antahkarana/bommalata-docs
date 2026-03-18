@@ -145,6 +145,7 @@ cat demo-logs/TIMELINE.md
 
 ## 📖 Documentation
 
+### Test Documentation
 Each test produces:
 - **Executable script** - Copy-paste ready commands
 - **Comprehensive results** - Setup, execution, observations, learnings
@@ -156,6 +157,23 @@ Each test produces:
 - Explains what's happening at each step
 - Highlights interesting behaviors
 - Provides developer examples
+
+### CLI Documentation
+The `bomma` CLI client provides a convenient command-line interface for interacting with bommalata:
+
+- **[CLI_GUIDE.md](CLI_GUIDE.md)** - Complete guide to the `bomma` CLI client
+  - Installation & configuration
+  - Authentication workflows
+  - Managing agents, tasks, and scheduled tasks
+  - Monitoring agent activity (`bomma sessions watch`)
+  - Real-time event streaming
+
+**Quick CLI Setup:**
+```bash
+pip install bomma-cliclient
+bomma --url http://localhost:8081 auth register --email you@example.com --password pass --name "You"
+bomma agents list
+```
 
 ---
 
@@ -176,6 +194,39 @@ Each test produces:
 ---
 
 ## 🏗️ Architecture Insights
+
+### System Architecture
+
+```
+┌──────────────┐
+│   bomma CLI  │  Command-line client (Python)
+└──────┬───────┘
+       │ HTTP/REST
+       ▼
+┌──────────────┐
+│  HTTP API    │  REST endpoints + SSE streaming
+│  (handlers/) │  Authentication, CRUD operations
+└──────┬───────┘
+       │ Go interface
+       ▼
+┌──────────────┐
+│ Agent Runner │  Task execution engine
+│ (runner/)    │  - Tool loop integration
+└──────┬───────┘  - Event emission
+       │          - Provider abstraction
+       ▼
+┌──────────────┐
+│  Providers   │  LLM integrations
+│ (providers/) │  - Anthropic (Claude)
+└──────────────┘  - OpenRouter (meta-provider)
+                  - OpenAI-compatible endpoints
+```
+
+**Key Layers:**
+- **CLI:** User-facing commands, config management, output formatting
+- **HTTP API:** REST + SSE endpoints, request validation, auth middleware
+- **Runner:** Core orchestration, tool execution, event streaming
+- **Providers:** LLM abstraction, streaming, reasoning levels
 
 ### What Works (Validated)
 - ✅ Server startup with all 9 migrations
