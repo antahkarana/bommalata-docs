@@ -13,9 +13,9 @@
 | 3 | Session Lifecycle | ✅ PASS | Full lifecycle tested |
 | 4 | SSE Streaming | ✅ PASS | Connected event received |
 | 5 | Agent Run + Events | ⏸️ SKIP | Requires provider key |
-| 6 | Memory Operations | ⏸️ TODO | |
+| 6 | Memory Operations | ✅ PASS | create, list, FTS search |
 | 7 | Multi-turn | ⏸️ TODO | |
-| 8 | Scheduled Tasks | ⏸️ TODO | |
+| 8 | Scheduled Tasks | ✅ PASS | create, list, trigger |
 
 ## Test 1: Auth Flow ✅
 
@@ -107,9 +107,61 @@ rm -f data/bommalata.db
 ./bommalata --config config.yaml
 ```
 
+## Test 6: Memory Operations ✅
+
+```
+=== Creating memory file ===
+{
+  "id": 1,
+  "path": "notes/demo.md",
+  "type": "brainstorm",
+  "wordCount": 29
+}
+
+=== FTS Search for 'streaming' ===
+{
+  "results": [{
+    "fileId": 1,
+    "path": "notes/demo.md",
+    "snippet": "## Key Points\n- Session API works\n- SSE streaming works...",
+    "heading": "Key Points",
+    "score": -9.71e-7
+  }]
+}
+```
+
+**API Notes:**
+- Create file: `POST /api/v1/agents/{id}/memory/files` with `type` (not `fileType`)
+- Search: `POST /api/v1/agents/{id}/memory/search` with `{"query": "..."}`
+
+## Test 8: Scheduled Tasks ✅
+
+```
+=== Creating scheduled task ===
+{
+  "id": 1,
+  "name": "demo-task",
+  "scheduleExpr": "0 * * * * *"
+}
+
+=== Manual trigger ===
+{
+  "id": 1,
+  "scheduledTaskId": 1,
+  "status": "success",
+  "durationMs": 2442
+}
+```
+
+**API Notes:**
+- Endpoint: `/api/v1/scheduled-tasks` (not `/api/v1/scheduled`)
+- Required fields: `name`, `scheduleType`, `scheduleExpr`, `agentId`, `taskPayload`
+- `taskPayload`: `{"prompt": "..."}`
+- Trigger: `POST /api/v1/scheduled-tasks/{id}/trigger`
+
 ## API Key
 
 For remaining tests:
 ```
-bomma_9teDj1XF5RB103bsndMWsarRIRnF0HPGwnCTXX5CDZk
+bomma_GR1C5wQLEWvkZaqS9VBDKRYxoD1bSa51YIo2pP7aST0
 ```
