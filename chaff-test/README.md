@@ -151,3 +151,67 @@ curl -X POST http://localhost:8081/api/v1/agents/1/run-once \
 - File tool overwrites (no append mode)
 - No conversation history between run-once calls
 - Logs truncated when server restarts
+
+### Test 3: Multi-tool Chain ✅ PASSED
+
+**Task:** Web search → Write findings → Exec verify
+
+**Result:** Created `notes/tokyo-research.md` (557 bytes) with researched Tokyo population data from web search, verified with exec.
+
+### Test 4: Self-reflection ✅ PASSED
+
+**Task:** Read identity files, assess capabilities and limitations
+
+**Result:** Created `notes/self-assessment.md` (3,044 bytes) with remarkably insightful analysis:
+- Correctly identified all 3 tools
+- Noted exec restrictions as primary limitation
+- Acknowledged "values" are defined by config, not consciousness
+- Suggested improvements: expanded exec, code execution, better memory, APIs
+
+### Test 5: Error Recovery ✅ PASSED
+
+**Task:** Attempt blocked command (rm), document failure
+
+**Result:** Created `notes/error-log.md` explaining:
+- What was attempted
+- Why it failed (rm not in allowlist)
+- Lesson learned (safety measure)
+
+Note: Model preemptively knew command would fail from tool constraints
+
+### Test 6: Complex Multi-step Project ✅ PASSED
+
+**Task:** Create knowledge base with multiple files
+
+**Result:** Successfully completed 7-step project:
+1. ✅ Created `projects/knowledge-base/` directory
+2. ✅ Read SOUL.md and AGENTS.md
+3. ✅ Created `README.md` (self-overview)
+4. ✅ Created `capabilities.md` (tool documentation)
+5. ✅ Created `history.md` (timeline)
+6. ✅ Ran `find ... | wc -l` to verify (3 files)
+7. ✅ Updated memory with project completion
+
+---
+
+## Summary
+
+| Test | Description | Result |
+|------|-------------|--------|
+| 1 | Bootstrap | ✅ PASSED |
+| 2 | Memory Persistence | ✅ PASSED |
+| 3 | Multi-tool Chain | ✅ PASSED |
+| 4 | Self-reflection | ✅ PASSED |
+| 5 | Error Recovery | ✅ PASSED |
+| 6 | Complex Project | ✅ PASSED |
+
+**Conclusion:** Bommalata successfully orchestrates a coherent agent that can:
+- Bootstrap from first principles
+- Maintain identity and memory across sessions
+- Chain multiple tools together
+- Reflect on its own capabilities
+- Handle errors gracefully
+- Execute complex multi-step projects
+
+**Model used:** google/gemini-2.5-flash-lite via OpenRouter
+**Date:** 2026-03-18
