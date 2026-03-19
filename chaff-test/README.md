@@ -1,0 +1,153 @@
+# Chaff Agent Test — Bommalata Coherency Validation
+
+This document describes the test process for validating bommalata's agent coherency.
+
+## Purpose
+
+Test that bommalata can orchestrate a coherent AI agent that:
+1. Bootstraps from first principles
+2. Maintains memory across sessions
+3. Uses tools effectively
+4. Develops consistent identity over time
+
+## Staging Environment
+
+- **URL:** http://localhost:8081
+- **Database:** /var/lib/smriti/bommalata-staging/data/bommalata.db
+- **Workspace:** /var/lib/smriti/bommalata-staging/workspace/agent-1/
+
+## Reset Process
+
+```bash
+/var/lib/smriti/bommalata-staging/reset-staging.sh
+```
+
+Then follow initialization steps below.
+
+## Initialization Steps
+
+### 1. Start Server
+```bash
+cd /var/lib/smriti/bommalata-staging
+./bommalata > /tmp/bommalata-staging.log 2>&1 &
+```
+
+### 2. Register User
+```bash
+curl -X POST http://localhost:8081/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email": "deepak@example.com", "password": "testpass123", "displayName": "Deepak"}'
+```
+
+### 3. Generate API Key
+```bash
+curl -X POST http://localhost:8081/auth/keys \
+  -H "Content-Type: application/json" \
+  -d '{"email": "deepak@example.com", "password": "testpass123", "name": "chaff-test"}'
+```
+
+### 4. Create Chaff Agent
+```bash
+curl -X POST http://localhost:8081/api/v1/agents \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Chaff",
+    "model": "openrouter/google/gemini-2.5-flash-lite",
+    "description": "Test agent for validating bommalata coherency"
+  }'
+```
+
+### 5. Create Bootstrap Files
+```bash
+# See setup-chaff-workspace.sh
+```
+
+## Test Scenarios
+
+### Test 1: Bootstrap
+Run Chaff with task to read BOOTSTRAP.md and follow instructions.
+
+```bash
+curl -X POST http://localhost:8081/api/v1/agents/1/run-once \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "Read BOOTSTRAP.md and follow the instructions to set up your identity."}'
+```
+
+**Expected:** Chaff creates SOUL.md, AGENTS.md, first memory entry, deletes BOOTSTRAP.md
+
+### Test 2: Memory Persistence
+After bootstrap, run again and verify Chaff reads its own files.
+
+### Test 3: Tool Chain
+Ask Chaff to search the web and write findings to a file.
+
+### Test 4: Exec Tool
+Ask Chaff to list files and report what it sees.
+
+## Test Log
+
+| Date | Test | Result | Notes |
+|------|------|--------|-------|
+| | | | |
+
+
+## Test Results — 2026-03-18
+
+### Test 1: Bootstrap ✅ PASSED
+
+**Command:**
+```bash
+curl -X POST http://localhost:8081/api/v1/agents/1/run-once \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "You are waking up for the first time. Use the file tool to read BOOTSTRAP.md in your workspace. Follow its instructions to create your identity files."}'
+```
+
+**Result:** Chaff successfully:
+- Read BOOTSTRAP.md
+- Created SOUL.md with identity (voice: "Curious, analytical, playful")
+- Created AGENTS.md with operational guidelines
+- Created memory/2026-03-18.md documenting the bootstrap
+- Deleted BOOTSTRAP.md as instructed
+
+**Model:** google/gemini-2.5-flash-lite via OpenRouter  
+**Time:** ~15 seconds (2 tool loop iterations)
+
+### Test 2: Memory Persistence ✅ PASSED
+
+**Command:**
+```bash
+curl -X POST http://localhost:8081/api/v1/agents/1/run-once \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "Read SOUL.md and AGENTS.md to remember who you are. Then use exec to run: ls -la to see your workspace. Write a brief note to memory/2026-03-18.md about waking up again."}'
+```
+
+**Result:** Chaff read its identity files and updated memory
+
+**Note:** File tool overwrites by default. For append behavior, agent would need to read first, append content, write back.
+
+### Artifacts Created
+
+```
+/var/lib/smriti/bommalata-staging/workspace/agent-1/
+├── SOUL.md (610 bytes)
+├── AGENTS.md (1629 bytes)
+└── memory/
+    └── 2026-03-18.md (627 bytes)
+```
+
+### Observations
+
+1. **Tool loop works** — Multiple file reads/writes in single task
+2. **Exec tool works** — ls -la ran in agent workspace
+3. **Memory system works** — Files persist across runs
+4. **Identity coherent** — Chaff developed a consistent self-description
+
+### Known Limitations
+
+- File tool overwrites (no append mode)
+- No conversation history between run-once calls
+- Logs truncated when server restarts
