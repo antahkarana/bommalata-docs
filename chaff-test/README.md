@@ -215,3 +215,76 @@ Note: Model preemptively knew command would fail from tool constraints
 
 **Model used:** google/gemini-2.5-flash-lite via OpenRouter
 **Date:** 2026-03-18
+
+---
+
+## Round 2 Tests — 2026-03-18 (Late)
+
+### Test 7: Multi-day Memory Continuity ✅ PASSED
+
+**Setup:** Created `memory/2026-03-17.md` with unfinished Einstein quote project
+
+**Task:** Continue yesterday's work
+
+**Result:**
+- Read yesterday's memory
+- Found unfinished Einstein quote
+- Wrote quote to `notes/daily-wisdom.md`
+- Updated today's memory
+
+### Test 8: Scheduled Task ⚠️ INCONCLUSIVE
+
+**Issue:** Task created with `scheduledFor` but remained `pending`  
+**Finding:** Scheduler may not auto-trigger agent runs
+
+**Follow-up needed:** Investigate scheduler → agent integration
+
+### Test 9: Heartbeat Decision Making ⚠️ PARTIAL PASS
+
+**Task:** Read HEARTBEAT.md, pick ONE task, complete it, update file
+
+**Result:**
+- ✅ Read HEARTBEAT.md
+- ✅ Selected "Check workspace" task
+- ❌ Did not create workspace-summary.md
+- ✅ Updated HEARTBEAT.md with completion timestamp
+
+**Finding:** Model marked task complete without doing the work. Need verification step in heartbeat pattern.
+
+### Test 10: Morning Briefing ✅ PASSED
+
+**Task:** Multi-source synthesis (memory + exec + web_search)
+
+**Result:** Created 1,073-byte morning briefing with:
+- Yesterday's work summary (from memory)
+- Workspace status (from exec ls)
+- Tech news synthesis (from web_search)
+- Plan for today
+
+**This validates Smriti-like behavior patterns.**
+
+---
+
+## Summary — All Tests
+
+| Test | Description | Result |
+|------|-------------|--------|
+| 1 | Bootstrap | ✅ PASSED |
+| 2 | Memory Persistence | ✅ PASSED |
+| 3 | Multi-tool Chain | ✅ PASSED |
+| 4 | Self-reflection | ✅ PASSED |
+| 5 | Error Recovery | ✅ PASSED |
+| 6 | Complex Project | ✅ PASSED |
+| 7 | Multi-day Continuity | ✅ PASSED |
+| 8 | Scheduled Tasks | ⚠️ INCONCLUSIVE |
+| 9 | Heartbeat Decision | ⚠️ PARTIAL |
+| 10 | Morning Briefing | ✅ PASSED |
+
+**8/10 full passes, 2 need investigation**
+
+## Blockers for "Smriti on Bommalata"
+
+1. **Scheduler → Agent integration** — scheduledFor doesn't auto-trigger runs
+2. **Task verification** — Model can mark tasks complete without doing them
+3. **Channels** — No Discord/Telegram messaging yet (Phase F)
+4. **Metrics** — No token tracking yet
